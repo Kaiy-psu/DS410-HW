@@ -45,17 +45,7 @@ def go(myarray: List[float], branch_factor: int):
     
     operation = [delayed(increment)(i) for i in myarray]
     z = delayed_object(addthem)(operation)
-
-
-
-
-
     z.visualize ('tree.png') # creates a png image of the graph
     result = z.compute () # result = 66
-
-
-
-
-
-
+    
     pass
