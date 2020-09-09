@@ -41,11 +41,10 @@ def go(myarray: List[float], branch_factor: int):
        the visualize method of the dask object (my_return_value.visualize('filename.png'))
        should return the same graph as in the assignment writeup.
     """
+ 
+    a = [delayed(increment)(i) for i in range(myarray)]
+    b = [delayed(addthem)(a) for n in range(0,branch_factor)]
+    b.visualize('lab1.png') # creates a png image of the graph
+    result = b.compute() # result = 66
 
-    
-    operation = [delayed(increment)(i) for i in myarray]
-    z = delayed_object(addthem)(operation)
-    z.visualize ('tree.png') # creates a png image of the graph
-    result = z.compute () # result = 66
-    
     pass
